@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+
+<meta charset="utf-8">
+<title>Contact Us Form</title>
+
+<script type="text/javascript">
+<!-- Hide from old browsers
+function isValid(myForm) {
+	if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(myForm.email.value))
+  {
+	saveToFile(myForm);
+    return (true);
+  }
+    alert("You have entered an invalid email address!");
+    return (false);
+}
+
+function saveToFile(myForm) {
+	var fso = new ActiveXObject("Scripting.FileSystemObject");
+    var saveFile = "C:\\Users\\berli\\Desktop\\messagefile.txt";
+	
+	fso.CreateTextFile(saveFile);
+	var file = fso.GetFile(saveFile);
+	
+	var streamWrite = file.OpenAsTextStream(2);
+	
+    streamWrite.Write("First Name: " + myForm.firstname.value + " \n");
+    streamWrite.Write("Last Name: " + myForm.lastname.value + " \n");
+	streamWrite.Write("Email: " + myForm.email.value + " \n");
+	streamWrite.Write("Message: " + myForm.message.value);
+	streamWrite.Close();
+	
+	alert("Message submitted!");
+}
+//-->
+</script>
+
+<link rel="stylesheet" type="text/css" href="contactstyle.css" />
+</head>
+
+<body>
+	<h1>Contact Us Form</h1>
+	<form name="myForm" onSubmit="writeToFile(myForm)">
+		<p>First Name</p>
+		<input name="firstname" type="text" class="textinput" />
+		<p>Last Name</p>
+		<input name="lastname" type="text" class="textinput" />
+		<p>Email</p>
+		<input name="email" type="text" class="textinput" />
+		<p>Message</p>
+		<textarea name="message" type="text"></textarea>
+		<p><input type="submit" value="SUBMIT" class="submit" onclick="isValid(myForm)" /></p>
+	</form>
+</body>
+</html>
